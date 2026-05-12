@@ -1,1 +1,3 @@
 print('Hey, it's Fred!')
+Ladies and gentlemen... Introducing...
+The chocolate starfish... and the hot dog flavored water!
