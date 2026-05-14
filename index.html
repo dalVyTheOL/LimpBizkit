@@ -1,0 +1,246 @@
+<!DOCTYPE html><html data-i18n-dir="ltr">
+<head>
+    <link type="text/css" rel="stylesheet" href="https://cas.taxsee.com/css/style.min-62600f2e4c5960556a6203adb78544b3.css"/><script type="text/javascript" src="https://cas.taxsee.com/js/script-a067403735a9eed9eae9aab115f292d2.js"></script>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="icon" href="https://cas.taxsee.com/favicon-ca85a6da0bfd721283ee36001c41a9fd.ico" type="image/x-icon"/><title>CAS &#8211; Central Authentication Service</title>
+</head>
+<body id="cas">
+    <div id="layout" class="app-layout">
+        <html>
+
+<header class="app-header">
+    <a href="index.html">
+        <img src="https://cas.taxsee.com/images/icons/icon-logo-47daa81e51a153cbb948d56681d1b588.svg"
+             width="120" height="24"
+             alt="TaxSee"></a>
+
+    <div
+            class="app-header__language-select ui-select"
+            id="app-header-language-select">
+
+        <button class="ui-select__trigger app-header__language-select-trigger" type="button">
+            <img src="https://cas.taxsee.com/images/icons/icon-language-cdd3e4e4ab595a5bee16a40e47007e12.svg"
+                 class="ui-select__language-icon" width="16" height="16" alt="Language"><span class="ui-select__label">Русский</span>
+
+            <img src="https://cas.taxsee.com/images/icons/icon-dropdown-c964bbf4074adc9480f24a008d828fc4.svg"
+                 class="ui-select__arrow" width="16" height="16" alt="Dropdown"></button>
+
+        <dialog class="ui-dropdown ui-select__dropdown" closedby="any" id="app-header-language-dropdown">
+            <form class="ui-dropdown__list" method="dialog">
+                <a class="ui-dropdown__option" href="https://cas.taxsee.com/index.html">Русский</a>
+                    <a class="ui-dropdown__option" href="https://cas.taxsee.com/login?locale=en-US&amp;service=https://contact.taxsee.com/api/login/?success%3Dhttps://staff.taxsee.com/shirin_ag%26invalid%3Dhttps://staff.taxsee.com/invalid">English</a>
+                    <a class="ui-dropdown__option" href="https://cas.taxsee.com/login?locale=ka-GE&amp;service=https://contact.taxsee.com/api/login/?success%3Dhttps://staff.taxsee.com/shirin_ag%26invalid%3Dhttps://staff.taxsee.com/invalid">ქართული</a>
+                    <a class="ui-dropdown__option" href="https://cas.taxsee.com/login?locale=fa-IR&amp;service=https://contact.taxsee.com/api/login/?success%3Dhttps://staff.taxsee.com/shirin_ag%26invalid%3Dhttps://staff.taxsee.com/invalid">فارْسِى</a>
+                    <a class="ui-dropdown__option" href="https://cas.taxsee.com/login?locale=es-ES&amp;service=https://contact.taxsee.com/api/login/?success%3Dhttps://staff.taxsee.com/shirin_ag%26invalid%3Dhttps://staff.taxsee.com/invalid">Español</a>
+                    <a class="ui-dropdown__option" href="https://cas.taxsee.com/login?locale=pt-BR&amp;service=https://contact.taxsee.com/api/login/?success%3Dhttps://staff.taxsee.com/shirin_ag%26invalid%3Dhttps://staff.taxsee.com/invalid">Português brasileiro</a>
+                </form>
+        </dialog>
+    </div>
+
+    <script type="text/javascript">
+        const selectButton = document.getElementById('app-header-language-select');
+        const languageDropdown = document.getElementById('app-header-language-dropdown');
+        const exitButton = document.getElementById('app-header-exit-button');
+
+        selectButton.addEventListener('click', () => {
+            if (languageDropdown.hasAttribute('open')) {
+                languageDropdown.close();
+            } else {
+                languageDropdown.show();
+            }
+        });
+
+        // will break if content is replaced dynamically, as it should be.
+        if (exitButton) {
+            if (['/logout'].includes(window.location.pathname)) {
+                exitButton.style.display = 'none';
+            } else {
+                exitButton.addEventListener(
+                    'click',
+                    () => (window.location.pathname = '/logout')
+                );
+            }
+        }
+
+        languageDropdown.addEventListener('click', (e) => e.stopPropagation());
+    </script>
+</header>
+
+
+        <div class="app-layout__content" id="content">
+    <div class="ui-card view-login u-col-lg">
+        <h1 class="login-form__title">Вход</h1>
+
+        <html>
+<form class="login-form u-col-lg" action="http://10.0.2.15/login" method="post" id="fm1">
+
+        <div class="u-col-md">
+
+            <div class="ui-textfield" size="xl">
+                <input
+                        id="login-form-username-input"
+                        class="js-textfield-input ui-textfield__input"
+                        autofocus
+                        name="username"
+                        type="text"
+                        placeholder="Логин"
+                        autocomplete="current-login"
+                        accesskey="л"
+                        required/><div class="ui-textfield__error">Обязательное поле</div>
+            </div>
+
+            <div class="ui-textfield" size="xl">
+                <input
+                        id="login-form-password-input"
+                        class="js-textfield-input ui-textfield__input ui-textfield__input_pad-end-one"
+                        name="password"
+                        type="password"
+                        placeholder="Пароль"
+                        accesskey="п"
+                        required/><button
+                        class="ui-textfield__end ui-textfield__button"
+                        size="lg"
+                        type="button">
+                    <img src="https://cas.taxsee.com/images/icons/icon-eye-300b061f4b4c55d9f6c9ab5cd2a12287.svg"
+                         width="16" height="16" alt="Eye"></button>
+
+                <div class="ui-textfield__error">Обязательное поле</div>
+                <div class="ui-textfield__hint">Включен Caps Lock</div>
+            </div>
+
+            <div class="ui-checkbox" role="checkbox">
+                <!-- hidden checkbox for a11y --><label class="ui-checkbox__label">
+                    <input class="ui-checkbox__input" type="checkbox" name="rememberMe"/><div class="ui-checkbox__box">
+                        <img src="https://cas.taxsee.com/images/icons/icon-check-7b15cfe27591cd367745cda3b94c31f8.svg"
+                             class="ui-checkbox__icon" width="12" height="8" alt="Eye"></div>
+
+                    Запомнить меня</label>
+            </div>
+        </div>
+
+        <div style="display: none">
+            <input type="hidden" name="execution" value="35936a93-ac38-4a79-8353-2ff6a21943a0_ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0lzSW10cFpDSTZJakJqTUdVellXUTBMV1kwTlRVdE5EZGxPQzA1TXpBeExUTTBabVkyWVdVMU4yUTNOQ0o5LmhTY09BdmFITkpmTkpqTS10UjZpRzZlelozamh1cEJHWlRzNUtjUlJKRkU0bGgtOG9VYjNkRVFmMVRmOWpYRDVXNFdXeFpUbnN4RC1Va0F0WmRZNWRSU3dSelhqT2ZKcWxZbXh1SE9ONEY4Mk1mbmJ1YVRYajlZQjl5a01FU200Z3gzMk1pQ1NUYmgtM3REbEpVU2Q3Z1hOTjVpM0Jabi1OQ195RGozZFN5Ti1LSzVJNnJnSFE4enNRcHgzM2hWV1Njc3ZIM25iODFsM1JqLVhUWFltQkVsbXI1TmROUFQ3UTBMRTVjY0ZoT0NUd1IyZGFnWHpZNkFzZkNkZ2lzUngxS3JvWmZWdTk0WjRGcjNOR2lkdHM2akNFcEdTLTdzOGxBQnRkanN3ZjExRU9KUWRGZU1OU01aVjZIN2pUWDF3akVweTdibklueXdpU3pjcW5zSzdyeld6OUxneXlhekpERnBONG41STBuamQ0MWtyVVp6SG9fNXhqSkV2QnZHck9wQ2VQZTBLNzdrRVgzM3BWcVhrRGJRUXV2cDlBazBKaXlVSFk0aG4wNXhHeW5EdFNZbks3UDNfU0plY2dHMVpLeW1DN3kyWEozVzZ6VnRXNDVuclJpa0NOVzVVdTllSE1CNTU0WlI2N0hRd3ZRendXRWg5MW16a1JEaEJXa2s5dGppQ1ZWbkk5VXpMb0d4bUhhQno4R3NmMjZObW1VWXFpWnJQS3pQVzZTdy14QUt4NHpvalpuRUNPcHNHQ3BJVEk2Y0lQWUFxWEtOaDRINmxVS1JsVVdlWHRsdHlSWGs4Nm9mdklHOTZ4SnlGYTZwQjdiME5EMGlOVS1tQVZHR2J3NWUwTUE3Y1l6Z1RlcHhHNlZzZlRpQXZrOTZMLWsyZnUtckhET1lFQ3JQLUgwcjFzSWFSYWFZRFZvenItUmtaNW92azlJVTlyZU9kbkxjRnJCb2prbkN4Mk1DZlFtYlZ4dzVDSUdfX1N5R0xFSlM2bXlvU3J6WHdkMVZ2WXlpOHZBNk1EYkFqb19lbUdBdktFNFZaQ19mYzVpb3BTTl9GVUdxYWpWcVBhRVc5YncxV3FhUGhPTUJOUG5sSUF5eFZCWk5mSTlEeXZLSENUdkJDbXltMThQNlJGcnBDTFExU0pLUWs3aURob2hDRURwWm5LSVl1dUlhWmxsSzFvV0tqNEl6QkN1OGtRekRpN3ZtbzUxX2hUcUJoUnJUZ0tHcGJzS0JvMFpkc1ZnMkREY195d3dQMXpQZmZHS0U4NTZsY0szM1V0M3VZM0IwcFk0TWFXSk40cVdGUGtOQVVTeWo2UnBHbnZMaE5aakRNUEdCaHRJV21WZnJmN0VTWlBHdnBiUGF0ellocERYSlRkSFNNMmtENFU0R0NtLXo1YUpyY3VzWWVDRHotQzA2M3czWmx6Z1lMbjVlTVktQXo2dm5RZEl3ckhQNmFxd04wdzJFVGswcW50QS1YOGpMeTV0WVR5TGNfVmgwUU0ySGwxQ1I4ems5aVBsekNPSzlxZkR1N2NsdUdRTHIyQmlfd05uQnNOTjlmdXI3eUhvQW5SV003MUtFc3M5emI1YVNDb2RQYXJib3VZUmtBMjJrcHBwOTNBaXhpVHA4VVBvT2NLR1dtVTFOd25Zc1VEM0JLQUpMRWcxVDd2NjJ2WEk2clRBZ29VZlVyNC1PbTRJbGxQN3J1THRtaVFxdWczS1gzWm9PVGw3c2k0VVpXMnFUMHZqNUlUcGZ1Zk0yam8tTkNqMV84LUhDMkJCLVlXbDNtaE9TZUhQc1ZRMzgyc1hxMGZpRklGZFBxU1pRSm5PSG5KVjJ2d2xlRHI5WDNKS1JFMmpQZEwwYjdudW5vZmZwUzVaS0V0UWoxcVlkOVYtZkEzRHZLSlhNZXFDOF92SUwtS0Q2bXRaS1NLaEd4VVpfSjZZZGtqc2duOTI4cXRjcEJ2SHdDUEM2cDRVbjU1X190M3NjN3o2emxQdXF2eXJaLVlOYkliYU8wMUZzbFVSODhGMFVEXzBWM0lWZTNmVF9GcVdzS19wNUpHa1VuS1Zaek5wYWVvT0VWMEVUVGQ3ejNISC1xaWhEYURYRkdtQ21TakFHNS1fOFN0N3IxQXotaTkxTUx3VE54VVRTLVhPdU5CV2hXVC0zelBnT21hU3pJV3ZRNk1rTzFGYWdWaXJUZlJ1aGNtYlREdndpaWJiUXJjN20xaTBsNWxzUU5XVHEzOHJGR0VPSlhzSnE3TFNCUDRWVWFGUFFKUllZN3VMNEROdy1SWnRhaEhnZHZvX0JlOTh1TFduMXdrdVdad1hDbzdRbUV2c0FVa2xZMGRBTnZNZnVjQjlNcWhuUkE0WUtvMVhEdzZZeFNEOXFkWlZmc3JORm91SUFpSG0tYVhRdnpaeHAta1lRTGpsb1AwREZ3Sk16RnEzSThESjhZVU1NRFNLTFVILVhjamZkU2JPX0dHMDkzODZyWWxNbzlnNmw1SkFuajNBdmpNbXJrdXE2TEJtZm1kaVFVZXBRNG5Ucm5lZnlDdGJXQm11NEhkZUlnV3hadkJOUzVscEZmWElPY2lKazh1UzUzRWZyLXEzakdId283cXRqUTVnYWxsRk5EOUVCdWFfYWlDbWkxS3VzaDhkQU9yMzBuc09KRS1ROEcxZndXWkQwckZzRW5JcUluYVI4WHBHY2tUN3FnWF9EMTRGU1pMVy1sZl9fYXZGc19qNkZjbDhldmRRbWJuT0ZjRmxkX0hnSXZhUG8yVW5YYXNXWTlOU3VoMzBFVFZsUng5U0VUSGhlRS1xOG5zaWZaSFoyRFEzYm53S0FERk9xSkFpR3hHcXhmZ29zZ245b1ZtSy1QM0ZmdWVUdkdQTm9oZVFmdkhHZFN6VjJibGd2QzVjZ3FVU3JLOVZMV2JZSUstMDdnRWxKZ2Q4TlAxa09neVVLclNnMWlxZmhGSG5NNW1jYldYZ25pV3FUVjZmUkxMNzZDRUlxbXN5V3k1bXJUWVVOWVBwQS1BZkJpUzV4R1dzdFNKdnQ3QThxU0dJaTJVd2J6WXotZHZEMk0tc0RiUlBZaE9uNHB4aktZbmUwX2Z0eGI2MGtuaGZySlJKN1hJTnZWbVo0M1BmTU5RdXlPNDRJVEdkbDJPUkpwZGNJOWUyMDNVRzAzQlVSZUNSd250el9FWC1odEE1N0g4eFEwbklfTU5LQ0M1Zl9UV3NSS0ZvQk5ZODIwem1hWUdocG9DLWpZNGVNZmJsNDlwaFFiWkdYYzluMF9SMjNYUXkwMGdxX1E1ZzN6b1hPREI4ZEkyTjN6a3RCRUEwcFE3QWlKV0xYTm9NaEI0WmdDNExYSVJIZEFtdXUwNG82MEtaaG1iVDViekZrU2hORTVLbVhvYWo3bUk5cnBwYW8yOFpITWxFaWpxRDQwSHF3Nlh6b1R1OWhPd1dMcVJoTmh1RENvOFYycUhPQnBucHlhSXBMUDBfQ1BCbnJUajBJcUYxNElwVVhqc2ZDTW52NW5uM2FCOEVDM0dwS3lrRUhVc3R5cEUtaVF6X0NUejNpamdYNmVKVkNwUjg5b3haTUEtcmJjQnRVeHFIdVlYdHRpT01oMWZqTDRvUW5aU1ZHMHRoWjVpcllSanc5TEZfX1Y3ZUlwb3hYMHhFY2tESGlKME9NSGpadkpDaFFMQWZxRVFNdW1Yb1BUNGxaZGVSUlVCSmdnVnlfUUUxQVNYVE5paktrV1dFaGlmc1hpcTd6QVBWdXVENmxMcnlKdWRueW9Za0stbkVvR1hnNDlBazhZUWIwdm9FYk44ck5tZ1RVVENPT0xfNTctZ1NJNnpfLVQtanhUSmhqaVhQTGJZM21OeG5ZMXp5NkVwVnh6Q1Y4di1tT1c0VjBZbzdRRFlRc3ZxaXdhdjh1ZHRHNlphdlhqd1Z5MERXcUN6bVdvbV9uc1ZjWWdaTU5USUU5QjVQLTJRdHY4UFRjdVJkOVdteG00TG82WmloU3BaR3ZwQ3R3dHFBSklXdXZOcFBWWmpiWnpZZDZ5dDlQZ3V4dmRZU0pTYVJUNTZxSnBKVnpPZURoN1d1TmdxNVpSQlNZMENJM0NuRnhKc2cxZENQdGV0VlNtNm5IR2F3dGw2clNST0J3UU9FeWNtbEJ3VHdIR0laYy1rMktVWU1hU1hRTUo4Q3NGajl4SEFZaHVzelJ6ZVlXN2JLY3p5ZXlwYWIzRERWQUpaMkxBZjI5aEppUndBV3VWZjNRTGhOblg4M0lHUDl1dlVPeU5qMk5YbUZ0WVZ3WjJ6b2VVR1lBc1hOeW5xaS1uRVkzYXhKVDBPUUp1di12d1NYOVBhS0FsUjN1ZnhtV1M2ZWZPZk9ESVRIb3NjQjRpaFFTcDhNdUktQ2k4VkM4S3dseEV5YzFTem5pNnc3RTV0dnJTZ0tsNl9tREEwTjlsc195a0paeVdVdURkdkJlTzZGMU5oSmpIa3REWFJBaVBQVldMenViMHRPZzhnaWJnaEhuN0VKdHg3ZFphbTVSRzR5b1lOREdvd1hPVlRkc1Z4TWtCZGVyMTVWSlVnd0RHUjFLemhKaXdsOGZaWm5tdVJnQVctMHRxRWo1RDFiQXpfNW9ONHBWQ0NBZzNyRGo5VUgwLXF1cjFweGc5MTJoYXZaTVBKTmdWYlN6OEZNbE1OVE1GNHZOLUsxdU9CY25ra2NsWUZwOEloSVBrOENMZ0hUM1FrZzF0WVRJRGNheGU0bnN5SzJpSDlTdENUQTZDQXZoNU1ZREhTWkRmNGNTRUcxUmxyeTFUZEw3M1VuaU1tY1FuSHMwaU9qUXMyZVNzMFo5Ulh0dkMwVnNwZktlRGU5MWtFa256Q19qM3ctbEU1X3ZYdXllRjhIMVY4V3otcXU4b2xRZ2JhZ0s3ZVd0LW5wLWtSN0ZsTHYtQUFyYjQ1RXVMWGhHdUZfNU9iOVRNMWw0MGZObGY2blFaUTNueFJrS19penRlX1U0U2NOQVlxN2NyTDg5Ulp0RTlEQ1hrU1RvejAtQWs2cHUtemlZR3VQNmVzQktpVzlYWEdWN2xURXlqVFFFX2hOZVY4S1RGTGVJSWEtMkR4bnBQR1l4aW1mdWlnVjVrVHBqYjdidnE1U2U1cHRfNjd0T3VTVzg2VVJuU0dGb2Jqb0NOQng1N1JQS3R1bHd3d2FxVS1SQXFDUm9BZURKVmdCWUlsS0xCcG5ReWR1d0ZkdFN3S0NkNlkyY0tkN3A4R2J6cV9IcGtfZ0tlY003dWZ1MG9ab1JOck01VGJzMkI4ZTVXdFRJQXAxQ1Fkd2FCcmw2Y1ZwY2ZuSW9Xbzh0STJiRHR3WWlTNkRqbDFScU4wTHZnYjVUZnhXRE12Vzh0VnlxT2NwR25yQW1DRXNLbDhYSm02OEQwRllGc2FGenV0c3NQNlN6RDNZODVUcnVUWFhxVnFkNkdBb3dTbkJvY29QY1plU3FvOXFoVzFOZ0N1MnZpdjNkSFhyOXNkaUFmakNXMjI2ZFdJQ0w4QjFSdG1iYklBLWxlSDhEdVNTUGNhUlo4RW5pdzRORzhyZ1gtVE1vczJhS05uRGlsZUlncHJ4VVZYRTFoSHU5ZEdDWHZBUjN1Qk1JeF9Qald3ZG1GcHM0M2ZwMm0yMXRoYmJza1RNZWk1Rk5sLWp0Zjc2SDB3NUdYeElUQXBjSGZ1UERJVVlQM1RRajZDNVdBLU1Tb1B5cVhmSjYwTEZCUUdlaXVEcEVsMHFONEpUMmc5MllOOE9rcVZMR2RWTWhzLWRuS295Z0lGNWlWZUdCVnFpcHEtaFFDQ2hkZkVuamllWWdpM2J1ZkNLSFJSbnlsd25nV1FnV3pMQWs4QlZkVmpFNi1uV3VYVGt1bklSNm9kUW82cnByTUhCekFxNkRGaUNESWZVMEdfcWRCRDVLRmNYcHFEbUkwVVhSOGI4cjNnUmdscXkyUnVJejlBMWhERlY4SXBWRVlXVy1FZnpiRkJTZXVEMUVmcjJKQ1BaUGNOcFpjNTdrZHJJbDZLXy1BVU1KY1dCUUliN19DWmd4dWhxeVZJc19GSHlEenVQYU03SnJlQi1kRGFCQ0hCbF9rWEJQZjFvaHFDZExVdTRtRTZ6MmxMZ21HTnR5Y1gzb0J4RlpDRmFJNHU5aWJ4bWxNQk9xZXhyWnFMdGFiUVFhZllOMy1VMk5SZmlQWmxaSGFyQ2I1NmthNUN5ODJLRHJFSmdtS2JPUzRheEV6SnJtR1pSbW5MSmVDVU1TR2VOTFhRUmwwRlhVS0xvM294Q1RFMnJZY1B6MU5JbjVoNm9xMHhVSjVIRlo4N3d2Q1JfSjBzWnFRNUVaZmY1a29pSWFHd1FBOGtuQk5URkhSWVk5dEkwWE84dVBsbllsN2ZDTXFaNENuRVI2eFpxVmtKZmRlUWpsam9BY0Q2ZFpUZFFXa1RWN1ptT1hJbENrREVwNmJMY3c4WkhySmJ5VWRTV29sajFMU0RBTnVrRU9NR1U4RWNicnVscjgxQXRlaGtTYkNlUFNfS29QVjV0dC1Gb01lUTNfck1fT21HVmt4a1lFV0lxZXkza0NTUUpNUW1meWg0YjFFLXFCRE1EYUxwOXdtbERnN2FSQnlDdnh6aXk0RDVFS3NFUDRfTUppZFNMdGFFRFNVMGFWakpUZ25SOVpLWDJFWHhGZmVpRDJaYTJEdFFFUnhRdno4d2U1NV84Y1gzbmNKbnVhbk0zakhjWHRnM2tGanJESUhqZXV1alpaYW5WSGd1R0dzV3JwQ3Z0NFg3cG0wQmt5VUM3aDZ2YWpudHY0dHNoX0UtR2oxRmkxOTZzbnRIRi05NnhRZVdiT05OcmhlczBJNzE0RXZUMVA1Yjc5a3NtXzFiNG0zZFZPNGpWMWcyV3BMSW9YWG9WWDE0SWo4b1RQa2E1NV9rbVJ6UGNpVWNiWlBFdEFNNGVmYXFiYW1qakw2OFJFV3Y2aktyRzBHTmhPdGVVd2xWUkRGV3hDbm56cjlacmZJdGZjZEtaWDk5Z1VmM2FpQjhlYkJFd2ZkSWRoY3V2MDVoNFpsTlBWcUIyaFFtWk5iWWt5eVJoODJyZm5qbV9Rc3phckt0UFFBX25XX0haN0ZGLXlvb3M3OG1VVmZLUUZvZ2E2eWlzdkp0dUhWTGZxejlrVFBRaC1Gb0VvajB3YlliQjdLdzF1eFJuaGRVbk1WczJYbXJVOXFhLUNHZUpkX01ES19HUW5KUVM1bl9rdGk3aUl3Y2Fzb2tQUl9rd3BuMzZwUWxPMVk3d1I3NFE4b3ZDR09XNGk5dnpIVC1rcHpxSnZpMzkyQ2RUTlVNSjNuc0pSbk41QXkxZGVhYUNYYm02dVlvOVFwV19OalFOTTAyd0JGWWRJMGVQUGRPdEhCeHJlV1NMdFRVanpJdXh1Qzd5Rkx2ZFFTRTY0VmprbjJIcWxUYVBDTVVUNC5mVmNOTjV0NXQ1bWFLVDhMR1JtSmkyT3dKNkdIS1JkNGtPV3Y4aWJwS0cwNmFuUlpkTkZQT2R2Mm1ENmFyNFQ3M1NOTmtpZjdza1NnVEdHSzlqajJpQQ=="/><input type="hidden" name="_eventId" value="submit"/><input type="hidden" name="geolocation"/></div>
+
+        <button id="login-form-send-button" class="ui-button" type="submit" size="xl">Войти</button>
+
+        <script type="text/javascript">
+            // Флаг для проверки отправки формы
+            const button = document.getElementById('login-form-send-button');
+            const form = document.getElementById("fm1");
+
+            // Подсветка ошибок только при сабмите
+            button.addEventListener('click', (event) => {
+                    event.preventDefault();
+
+                    let hasEmpty = false;
+
+                    form.querySelectorAll('.ui-textfield__input[required]').forEach((input) => {
+                        const errorDiv = input.parentElement.querySelector('.ui-textfield__error');
+                        if (!input.value.trim()) {
+                            errorDiv.style.display = 'block';
+                            input.classList.add('ui-textfield__input_touched');
+                            hasEmpty = true;
+                        } else {
+                            errorDiv.style.display = 'none';
+                            input.classList.remove('ui-textfield__input_touched');
+                        }
+                    });
+
+                    if (!hasEmpty) {
+                        button.disabled = true;
+                        form.submit();
+                    }
+                });
+
+            // Скрыть "Обязательное поле" при начале ввода
+            document.querySelectorAll('.ui-textfield__input[required]').forEach((input) => {
+                input.addEventListener('input', (event) => {
+                    const errorDiv = event.target.parentElement.querySelector('.ui-textfield__error');
+                    if (event.target.value.trim()) {
+                        errorDiv.style.display = 'none';
+                        event.target.classList.remove('ui-textfield__input_touched');
+                    }
+                });
+            });
+
+            // Проверка Caps Lock при вводе пароля
+            const passwordInput = document.getElementById('login-form-password-input');
+            const capsLockHint = passwordInput.parentElement.querySelector('.ui-textfield__hint');
+
+            passwordInput.addEventListener('keyup', (event) => {
+                if (event.getModifierState && event.getModifierState('CapsLock')) {
+                    capsLockHint.style.display = 'block';
+                } else {
+                    capsLockHint.style.display = 'none';
+                }
+            });
+
+            // Просмотр пароля и смена svg
+            const togglePasswordButton = document.querySelector(
+                '#login-form-password-input + .ui-textfield__end'
+            );
+            const eyeIcon = togglePasswordButton.querySelector('img');
+
+            togglePasswordButton.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    eyeIcon.src = "\/images\/icons\/icon-eye-off.svg";
+                } else {
+                    passwordInput.type = 'password';
+                    eyeIcon.src = "\/images\/icons\/icon-eye.svg";
+                }
+            });
+        </script>
+    </form>
+
+
+        <button
+                id="view-login-form-forgot-password-button"
+                class="view-login__forgot-credentials ui-link">Не помните логин или пароль?</button>
+
+        <html>
+<dialog id="login-forgot-password-dialog" class="ui-dialog" closedby="any">
+    <h2 class="ui-dialog__title">Восстановление доступа</h2>
+    <button
+            id="login-forgot-password-dialog-close-button"
+            class="ui-dialog__close-button ui-icon-button"
+            size="xl">
+        <img src="https://cas.taxsee.com/images/icons/icon-close-f627bb817b88ee078e010c2f1ac45bcb.svg"
+             width="24" height="24" alt="close"></button>
+
+    <p>
+        <span>Обратитесь в чат поддержки через Technogram: </span>
+        <a href="https://im.taxsee.com/tech/techsupport_bot"
+           class="ui-link"
+           target="_blank">перейти в чат.</a>
+    </p>
+</dialog>
+
+        <script type="text/javascript">
+            const forgotPasswordButton = document.getElementById(
+                'view-login-form-forgot-password-button'
+            );
+            const dialogElement = document.getElementById(
+                'login-forgot-password-dialog'
+            );
+
+            // Закрытие диалогового окна по нажатию вне окна
+            forgotPasswordButton.addEventListener('click', () => {
+                if (dialogElement.hasAttribute('open')) {
+                    dialogElement.close();
+                } else {
+                    dialogElement.showModal();
+                }
+            });
+
+            // Обработчик нажатия на крестик диалогового окна
+            const closeButton = document.getElementById('login-forgot-password-dialog-close-button');
+            closeButton.addEventListener('click', () => {
+                dialogElement.close();
+            });
+        </script>
+    </div>
+</div>
+    </div>
+    <div id="overlay-container"></div>
+</body>
+</html>
